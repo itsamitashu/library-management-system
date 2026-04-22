@@ -66,93 +66,175 @@ function Dashboard() {
     <div
       style={{
         minHeight: "100vh",
-        backgroundColor: "#0f172a",
+        background: "#0f172a",
         color: "white",
-        padding: "30px"
+        padding: "20px"
       }}
     >
-      <h1 style={{ textAlign: "center" }}>
-        Library Management Dashboard 📚
-      </h1>
+      {/* Navbar */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          background: "#1e293b",
+          padding: "15px 30px",
+          borderRadius: "12px",
+          marginBottom: "30px"
+        }}
+      >
+        <h2>📚 Library Management System</h2>
+        <h3>Welcome Admin</h3>
+      </div>
 
-      <h2>Add New Book</h2>
-
-      <form onSubmit={addBook}>
-        <input
-          type="text"
-          name="title"
-          placeholder="Book Title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-        />
-
-        <br /><br />
-
-        <input
-          type="text"
-          name="author"
-          placeholder="Author Name"
-          value={formData.author}
-          onChange={handleChange}
-          required
-        />
-
-        <br /><br />
-
-        <input
-          type="text"
-          name="category"
-          placeholder="Category"
-          value={formData.category}
-          onChange={handleChange}
-          required
-        />
-
-        <br /><br />
-
-        <input
-          type="number"
-          name="quantity"
-          placeholder="Quantity"
-          value={formData.quantity}
-          onChange={handleChange}
-          required
-        />
-
-        <br /><br />
-
-        <button type="submit">
-          Add Book
-        </button>
-      </form>
-
-      <hr />
-
-      <h2>All Books</h2>
-
-      {books.map((book) => (
-        <div
-          key={book._id}
-          style={{
-            border: "1px solid white",
-            padding: "15px",
-            marginBottom: "15px",
-            borderRadius: "10px"
-          }}
-        >
-          <h3>{book.title}</h3>
-          <p>Author: {book.author}</p>
-          <p>Category: {book.category}</p>
-          <p>Quantity: {book.quantity}</p>
-
-          <button onClick={() => deleteBook(book._id)}>
-            Delete Book
-          </button>
+      {/* Cards */}
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          marginBottom: "30px",
+          flexWrap: "wrap"
+        }}
+      >
+        <div style={cardStyle}>
+          <h3>Total Books</h3>
+          <h1>{books.length}</h1>
         </div>
-      ))}
+
+        <div style={cardStyle}>
+          <h3>Available Books</h3>
+          <h1>{books.length}</h1>
+        </div>
+
+        <div style={cardStyle}>
+          <h3>Library Status</h3>
+          <h1>Active</h1>
+        </div>
+      </div>
+
+      {/* Add Book Form */}
+      <div
+        style={{
+          background: "#1e293b",
+          padding: "25px",
+          borderRadius: "15px",
+          marginBottom: "30px"
+        }}
+      >
+        <h2>Add New Book</h2>
+
+        <form onSubmit={addBook}>
+          <input
+            type="text"
+            name="title"
+            placeholder="Book Title"
+            value={formData.title}
+            onChange={handleChange}
+            required
+            style={inputStyle}
+          />
+
+          <input
+            type="text"
+            name="author"
+            placeholder="Author Name"
+            value={formData.author}
+            onChange={handleChange}
+            required
+            style={inputStyle}
+          />
+
+          <input
+            type="text"
+            name="category"
+            placeholder="Category"
+            value={formData.category}
+            onChange={handleChange}
+            required
+            style={inputStyle}
+          />
+
+          <input
+            type="number"
+            name="quantity"
+            placeholder="Quantity"
+            value={formData.quantity}
+            onChange={handleChange}
+            required
+            style={inputStyle}
+          />
+
+          <button type="submit" style={addBtn}>
+            Add Book
+          </button>
+        </form>
+      </div>
+
+      {/* Books Section */}
+      <div>
+        <h2>All Books</h2>
+
+        {books.map((book) => (
+          <div
+            key={book._id}
+            style={{
+              background: "#1e293b",
+              padding: "20px",
+              borderRadius: "12px",
+              marginBottom: "15px"
+            }}
+          >
+            <h3>{book.title}</h3>
+            <p>Author: {book.author}</p>
+            <p>Category: {book.category}</p>
+            <p>Quantity: {book.quantity}</p>
+
+            <button
+              onClick={() => deleteBook(book._id)}
+              style={deleteBtn}
+            >
+              Delete Book
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
+
+const cardStyle = {
+  background: "#1e293b",
+  padding: "20px",
+  borderRadius: "15px",
+  minWidth: "220px",
+  flex: 1,
+  textAlign: "center"
+};
+
+const inputStyle = {
+  width: "100%",
+  padding: "12px",
+  marginBottom: "15px",
+  borderRadius: "8px",
+  border: "none"
+};
+
+const addBtn = {
+  width: "100%",
+  padding: "12px",
+  background: "#16a34a",
+  color: "white",
+  border: "none",
+  borderRadius: "8px",
+  fontSize: "16px"
+};
+
+const deleteBtn = {
+  padding: "10px 20px",
+  background: "#dc2626",
+  color: "white",
+  border: "none",
+  borderRadius: "8px"
+};
 
 export default Dashboard;
