@@ -45,6 +45,7 @@ function Login() {
             type="email"
             name="email"
             placeholder="Enter Email"
+            value={formData.email}
             onChange={handleChange}
             required
             style={input}
@@ -54,6 +55,7 @@ function Login() {
             type="password"
             name="password"
             placeholder="Enter Password"
+            value={formData.password}
             onChange={handleChange}
             required
             style={input}
@@ -104,7 +106,10 @@ const input = {
   borderRadius: "10px",
   border: "2px solid #ff4d4d",
   fontSize: "18px",
-  background: "white"
+  background: "#ffffff",
+  color: "#111827",
+  outline: "none",
+  boxSizing: "border-box"
 };
 
 const button = {
