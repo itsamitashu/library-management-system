@@ -27,35 +27,18 @@ function Login() {
       );
 
       localStorage.setItem("token", res.data.token);
-
       alert(res.data.message);
       navigate("/dashboard");
 
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error.response?.data?.message || "Login Failed");
     }
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#0f172a",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <div
-        style={{
-          background: "white",
-          padding: "40px",
-          borderRadius: "15px",
-          width: "350px",
-          textAlign: "center"
-        }}
-      >
-        <h1>Login</h1>
+    <div style={mainContainer}>
+      <div style={box}>
+        <h1 style={title}>Login</h1>
 
         <form onSubmit={handleSubmit}>
           <input
@@ -64,11 +47,7 @@ function Login() {
             placeholder="Enter Email"
             onChange={handleChange}
             required
-            style={{
-              width: "90%",
-              padding: "10px",
-              marginBottom: "15px"
-            }}
+            style={input}
           />
 
           <input
@@ -77,34 +56,77 @@ function Login() {
             placeholder="Enter Password"
             onChange={handleChange}
             required
-            style={{
-              width: "90%",
-              padding: "10px",
-              marginBottom: "15px"
-            }}
+            style={input}
           />
 
-          <button
-            type="submit"
-            style={{
-              width: "100%",
-              padding: "12px",
-              background: "#2563eb",
-              color: "white",
-              border: "none",
-              borderRadius: "8px"
-            }}
-          >
+          <button type="submit" style={button}>
             Login
           </button>
         </form>
 
-        <p style={{ marginTop: "20px" }}>
-          New User? <Link to="/register">Register Here</Link>
+        <p style={text}>
+          New User?{" "}
+          <Link to="/register" style={link}>
+            Register Here
+          </Link>
         </p>
       </div>
     </div>
   );
 }
+
+const mainContainer = {
+  minHeight: "100vh",
+  background: "#07122b",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center"
+};
+
+const box = {
+  background: "#f3f3f3",
+  padding: "50px",
+  borderRadius: "20px",
+  width: "420px",
+  textAlign: "center"
+};
+
+const title = {
+  fontSize: "60px",
+  color: "#111827",
+  marginBottom: "30px"
+};
+
+const input = {
+  width: "100%",
+  padding: "16px",
+  marginBottom: "20px",
+  borderRadius: "10px",
+  border: "2px solid #ff4d4d",
+  fontSize: "18px",
+  background: "white"
+};
+
+const button = {
+  width: "100%",
+  padding: "16px",
+  background: "#ff1e1e",
+  color: "white",
+  border: "none",
+  borderRadius: "10px",
+  fontSize: "20px",
+  cursor: "pointer"
+};
+
+const text = {
+  marginTop: "25px",
+  fontSize: "18px",
+  color: "#444"
+};
+
+const link = {
+  color: "#ff1e1e",
+  fontWeight: "bold"
+};
 
 export default Login;
