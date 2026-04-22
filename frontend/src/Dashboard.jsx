@@ -10,8 +10,7 @@ function Dashboard() {
     quantity: ""
   });
 
-const API = "http://localhost:5000/api/books";
-
+const API = "https://library-backend-qxzb.onrender.com/api/books";
   const fetchBooks = async () => {
     try {
       const res = await axios.get(API);
