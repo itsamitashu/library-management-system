@@ -23,7 +23,7 @@ function Register() {
 
     try {
       const res = await axios.post(
-        "http://library-backend-qxzb.onrender.com/api/users/register",
+        "http://localhost:5000/api/users/register",
         formData
       );
 
