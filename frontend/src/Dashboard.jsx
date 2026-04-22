@@ -10,7 +10,7 @@ function Dashboard() {
     quantity: ""
   });
 
-  const API = "http://localhost:5000/api/books";
+  const API = "http://library-backend-qxzb.onrender.com/api/books";
 
   const fetchBooks = async () => {
     try {
