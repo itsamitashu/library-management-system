@@ -36,48 +36,85 @@ function Register() {
   };
 
   return (
-    <div style={{ padding: "30px" }}>
-      <h1>Register Page</h1>
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#111827",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
+    >
+      <div
+        style={{
+          background: "white",
+          padding: "40px",
+          borderRadius: "15px",
+          width: "380px",
+          textAlign: "center"
+        }}
+      >
+        <h1>Register</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter Name"
-          onChange={handleChange}
-          required
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter Name"
+            onChange={handleChange}
+            required
+            style={{
+              width: "90%",
+              padding: "10px",
+              marginBottom: "15px"
+            }}
+          />
 
-        <br /><br />
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            onChange={handleChange}
+            required
+            style={{
+              width: "90%",
+              padding: "10px",
+              marginBottom: "15px"
+            }}
+          />
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Email"
-          onChange={handleChange}
-          required
-        />
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            onChange={handleChange}
+            required
+            style={{
+              width: "90%",
+              padding: "10px",
+              marginBottom: "15px"
+            }}
+          />
 
-        <br /><br />
+          <button
+            type="submit"
+            style={{
+              width: "100%",
+              padding: "12px",
+              background: "#16a34a",
+              color: "white",
+              border: "none",
+              borderRadius: "8px"
+            }}
+          >
+            Register
+          </button>
+        </form>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter Password"
-          onChange={handleChange}
-          required
-        />
-
-        <br /><br />
-
-        <button type="submit">Register</button>
-      </form>
-
-      <br />
-
-      <p>
-        Already have account? <Link to="/">Login Here</Link>
-      </p>
+        <p style={{ marginTop: "20px" }}>
+          Already have account? <Link to="/">Login Here</Link>
+        </p>
+      </div>
     </div>
   );
 }

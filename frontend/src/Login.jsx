@@ -37,38 +37,72 @@ function Login() {
   };
 
   return (
-    <div style={{ padding: "30px" }}>
-      <h1>Login Page</h1>
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#0f172a",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
+    >
+      <div
+        style={{
+          background: "white",
+          padding: "40px",
+          borderRadius: "15px",
+          width: "350px",
+          textAlign: "center"
+        }}
+      >
+        <h1>Login</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Email"
-          onChange={handleChange}
-          required
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            onChange={handleChange}
+            required
+            style={{
+              width: "90%",
+              padding: "10px",
+              marginBottom: "15px"
+            }}
+          />
 
-        <br /><br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            onChange={handleChange}
+            required
+            style={{
+              width: "90%",
+              padding: "10px",
+              marginBottom: "15px"
+            }}
+          />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter Password"
-          onChange={handleChange}
-          required
-        />
+          <button
+            type="submit"
+            style={{
+              width: "100%",
+              padding: "12px",
+              background: "#2563eb",
+              color: "white",
+              border: "none",
+              borderRadius: "8px"
+            }}
+          >
+            Login
+          </button>
+        </form>
 
-        <br /><br />
-
-        <button type="submit">Login</button>
-      </form>
-
-      <br />
-
-      <p>
-        New User? <Link to="/register">Register Here</Link>
-      </p>
+        <p style={{ marginTop: "20px" }}>
+          New User? <Link to="/register">Register Here</Link>
+        </p>
+      </div>
     </div>
   );
 }
